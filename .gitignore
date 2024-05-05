@@ -1,0 +1,16 @@
+# Directories
+src/obj-intel64/
+.vscode/
+
+# Log files
+stable-load.out
+inspector.stats.txt
+inspector.ips.txt
+controller-log.txt
+src/obj-intel64/controller-log.txt
+pin-tool-log.txt
+rc/obj-intel64/in-tool-log.txt
+
+# SDE
+sde-kit/
+sde.tar.xz

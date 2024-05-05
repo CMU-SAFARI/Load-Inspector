@@ -1,0 +1,91 @@
+#!/usr/bin/env python
+
+###################################################
+# Load Inspector
+# Author: Rahul Bera (write2bera@gmail.com)
+###################################################
+
+import argparse
+import os
+import sys
+
+def add_arguments(parser):
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=str,
+        default="inspector",
+        help="Output file name",
+    )
+    parser.add_argument(
+        "--dump-loads",
+        type=bool,
+        default=False,
+        help="Dump stable load IPs in a file",
+    )
+    parser.add_argument(
+        "--start-icount",
+        type=int,
+        default=False,
+        help="Start profiling when instruction count hits the given value",
+    )
+    parser.add_argument(
+        "--instr-length",
+        type=int,
+        default=0,
+        help="End profiling after the given instructions have committed",
+    )
+
+
+#########################
+# MAIN
+#########################
+
+parser = argparse.ArgumentParser()
+add_arguments(parser)
+
+if "-h" in sys.argv or "--help" in sys.argv:
+    parser.print_help()
+    exit()
+
+loc = sys.argv.index("--")
+target_exe_knobs = sys.argv[loc:]
+args = parser.parse_args(args=sys.argv[1:loc])
+
+if "SDE_BUILD_KIT" not in os.environ:
+    print("env[SDE_BUILD_KIT] is not set. Have you sourced setvars.sh?")
+    exit(1)
+
+if "INSPECTOR_HOME" not in os.environ:
+    print("env[INSPECTOR_HOME] is not set. Have you sourced setvars.sh?")
+    exit(1)
+
+base_command = (os.environ['SDE_BUILD_KIT'] + "/sde64" 
+                + " " + "-future -t64" 
+                + " " + os.environ['INSPECTOR_HOME'] + "/src/obj-intel64/inspector-tool.so"
+                )
+
+if args.output:
+    base_command += " -statf " + args.output + ".stats.txt"
+
+if args.dump_loads:
+    base_command += " -dsl 1"
+    if args.output:
+        base_command += " -slf " + args.output + ".ips.txt"
+
+if args.start_icount:
+    base_command += " -control start:icount:" + str(args.start_icount) + ":global"
+
+if args.instr_length:
+    end_icount = int(args.start_icount) + int(args.instr_length)
+    base_command += " -control stop:icount:" + str(end_icount) + ":global"
+
+if args.start_icount or args.instr_length:
+    base_command += " -controller_log 1"
+
+
+final_command = base_command + " -- " + ' '.join(target_exe_knobs[1:])
+
+
+print(f'Executing command: {final_command}')
+os.system(final_command)
