@@ -42,7 +42,7 @@ The Load Inspector is a binary instrumentation tool that can analyze load instru
 
 Load Inspector uses [Intel® Software Development Emulator (SDE)](https://www.intel.com/content/www/us/en/developer/articles/tool/software-development-emulator.html) API to emulate and instrument any x86(-64) binary running on an Intel processor. Load Inspector also supports the following features out-of-the-box:
   
-  * Instrument binaries written using advanced x86-64 ISA extensions (e.g., [Intel® Advanced Performance Extension (APX)](https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html) that doubles the architectural registers from 16 to 32).
+  * Instrument binaries compiled using advanced (and maybe unsupported by the native machine) x86-64 ISA extensions (e.g., [Intel® Advanced Performance Extension (APX)](https://www.intel.com/content/www/us/en/developer/articles/technical/advanced-performance-extensions-apx.html) that doubles the architectural registers from 16 to 32).
   * Instrument only the regions of interest (ROI) of a binary (or a specific thread of a binary).
 
 ## Citation
