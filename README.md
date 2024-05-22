@@ -133,6 +133,7 @@ Load Inspector supports the following optional arguments. To get the full list, 
 | `--dump-loads` | Boolean | If provided 1, the tool will dump a CSV file containing all load PCs that are stable across the instrumentation. | 0 |
 | `--start-icount` | Integer | If provided non-zero, the tool will start instrumenting the binary from the given instruction count. Zero signifies instrumentation from the beginning. | 0 |
 | `--instr-length` | Integer | if provided non-zero, the tool will stop the instrumentation after the given number of instruction has been retired. Zero signifies the instrumentation will continue till the end of the binary. | 0 |
+| `--post-process` | Boolean | If provided 1, the tool will post-process the stat file and prepare some high-level charts to visualize the stats. | 0 |
 
 ### Some Examples
 
