@@ -110,15 +110,15 @@ static void dump_stats(std::string stats_filename, bool dump_stable_loads, std::
     }
 
     stats << "load_ips.total " << num_load_ips << std::endl;
-    stats << "stable_load_ips.total " << total_stable_load_ips << std::endl;
+    stats << "global_stable_load_ips.total " << total_stable_load_ips << std::endl;
     FOREACH_LOAD_TYPE_SIZE({
-        stats << "stable_load_ips." << load_type_t2str[type] << "." << load_size2str[size] << " " << num_stable_load_ips[type][size] << std::endl;
+        stats << "global_stable_load_ips." << load_type_t2str[type] << "." << load_size2str[size] << " " << num_stable_load_ips[type][size] << std::endl;
     });
     stats << std::endl;
 
-    stats << "stable_loads.total " << total_stable_loads << std::endl;
+    stats << "global_stable_loads.total " << total_stable_loads << std::endl;
     FOREACH_LOAD_TYPE_SIZE({
-        stats << "stable_loads." << load_type_t2str[type] << "." << load_size2str[size] << " " << num_stable_loads[type][size] << std::endl;
+        stats << "global_stable_loads." << load_type_t2str[type] << "." << load_size2str[size] << " " << num_stable_loads[type][size] << std::endl;
     });
 
     stats.close();
@@ -128,7 +128,7 @@ static void dump_stats(std::string stats_filename, bool dump_stable_loads, std::
         std::ofstream sl_stats;
         sl_stats.open(stable_load_stats_filename.c_str());
 
-        sl_stats << "stable_load_ip,occurence,load_type" << std::endl;
+        sl_stats << "global_stable_load_ip,occurence,load_type" << std::endl;
         std::sort(pairs.begin(), pairs.end(),
                 [](std::pair<uint64_t, load_attr_t> &a, std::pair<uint64_t, load_attr_t> &b)
                 {

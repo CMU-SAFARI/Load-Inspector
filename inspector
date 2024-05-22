@@ -35,6 +35,12 @@ def add_arguments(parser):
         default=0,
         help="End profiling after the given instructions have committed",
     )
+    parser.add_argument(
+        "--post-process",
+        type=bool,
+        default=False,
+        help="Post-process the stats into charts",
+    )
 
 
 #########################
@@ -89,3 +95,9 @@ final_command = base_command + " -- " + ' '.join(target_exe_knobs[1:])
 
 print(f'Executing command: {final_command}')
 os.system(final_command)
+
+if args.post_process:
+    print("Starting post-processing...")
+    postprocess_command = "python " + os.environ['INSPECTOR_HOME'] + "/tools/postprocess.py -i " + args.output + ".stats.txt" + " -o " + args.output + ".postprocess.png"
+    print("Command: {}".format(postprocess_command))
+    os.system(postprocess_command)

@@ -6,6 +6,7 @@ src/obj-intel64/
 stable-load.out
 inspector.stats.txt
 inspector.ips.txt
+inspector.postprocess.png
 controller-log.txt
 src/obj-intel64/controller-log.txt
 pin-tool-log.txt
