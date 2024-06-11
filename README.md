@@ -11,7 +11,7 @@
 <p align="center">
     <a href="https://github.com/CMU-SAFARI/Load-Inspector/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
     <a href="https://github.com/CMU-SAFARI/Load-Inspector/releases"><img alt="GitHub release" src="https://img.shields.io/github/release/CMU-SAFARI/Load-Inspector"></a>
-    <a href="https://arxiv.org/abs/2209.00188"><img src="https://img.shields.io/badge/cs.AR-2209.00188-b31b1b?logo=arxiv&logoColor=red" alt="DOI"></a>
+    <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/cs.AR-XXXX.XXXXX-b31b1b?logo=arxiv&logoColor=red" alt="DOI"></a>
 </p>
 
 <details open="open">
@@ -47,7 +47,7 @@ Load Inspector uses [Intel® Software Development Emulator (SDE)](https://www.in
 
 ## Citation
 
-The Load Inspector tool was a part of the following research paper published in ISCA 2024.
+The Load Inspector tool is a part of the following research paper published in ISCA 2024:
 
 > _Rahul Bera, Adithya Ranganathan, Joydeep Rakshit, Sujit Mahto,
 Anant V. Nori, Jayesh Gaur, Ataberk Olgun, Konstantinos Kanellopoulos,
