@@ -11,7 +11,7 @@
 <p align="center">
     <a href="https://github.com/CMU-SAFARI/Load-Inspector/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
     <a href="https://github.com/CMU-SAFARI/Load-Inspector/releases"><img alt="GitHub release" src="https://img.shields.io/github/release/CMU-SAFARI/Load-Inspector"></a>
-    <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/cs.AR-XXXX.XXXXX-b31b1b?logo=arxiv&logoColor=red" alt="DOI"></a>
+    <a href="https://arxiv.org/abs/2406.18786"><img src="https://img.shields.io/badge/cs.AR-2406.18786-b31b1b?logo=arxiv&logoColor=red" alt="DOI"></a>
 </p>
 
 <details open="open">
@@ -36,7 +36,7 @@ The Load Inspector is a binary instrumentation tool that can analyze load instru
   * Histogram of dynamic loads based on:
     * Load data size
     * Load addressing mode: PC-relative (aka RIP-relative), stack-relative, register-relative
-  * Loads that always fetch the same data from the same memory address (aka stable loads as per [this paper]()), and their distribution based on :
+  * Loads that always fetch the same data from the same memory address (aka global-stable loads as per [this paper](https://arxiv.org/pdf/2406.18786)), and their distribution based on :
     * Data size
     * Addressing mode
 
@@ -52,7 +52,7 @@ The Load Inspector tool is a part of the following research paper published in I
 > _Rahul Bera, Adithya Ranganathan, Joydeep Rakshit, Sujit Mahto,
 Anant V. Nori, Jayesh Gaur, Ataberk Olgun, Konstantinos Kanellopoulos,
 Mohammad Sadrosadati, Sreenivas Subramoney, and Onur Mutlu, "[Constable: Improving Performance and Power Efficiency
-by Safely Eliminating Load Execution]()", In Proceedings of the 51st International Symposium on Computer Architecture (ISCA), 2024_
+by Safely Eliminating Load Instruction Execution](https://arxiv.org/pdf/2406.18786)", In Proceedings of the 51st International Symposium on Computer Architecture (ISCA), 2024_
 
 If you find this tool useful for your research, please cite using:
 
@@ -60,7 +60,7 @@ If you find this tool useful for your research, please cite using:
 @inproceedings{constable,
   author = {Bera, Rahul and Ranganathan, Adithya and Rakshit, Joydeep and Mahto, Sujit and Nori, Anant V. and Gaur, Jayesh and Olgun, Ataberk and Kanellopoulos, Konstantinos and Sadrosadati, Mohammad and Subramoney, Sreenivas and Mutlu, Onur},
   title = {{Constable: Improving Performance and Power Efficiency
-by Safely Eliminating Load Execution}},
+by Safely Eliminating Load Instruction Execution}},
   booktitle = {Proceedings of the 51st International Symposium on Computer Architecture},
   year = {2024}
 }
